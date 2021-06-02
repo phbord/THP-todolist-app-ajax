@@ -1,0 +1,3 @@
+document.querySelectorAll(".notice")[0].textContent = "<%= @flash %>";
+let deleteElt = document.querySelector("#card-item-" + <%= @task.id %>);
+deleteElt.parentNode.removeChild(deleteElt);

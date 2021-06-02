@@ -1,0 +1,14 @@
+document.querySelectorAll(".notice")[0].textContent = "<%= @flash %>";
+let categoryId = "<%= @task.category_id %>";
+let key = categoryId - 1;
+let cardElt = document.querySelectorAll(".card-list")[key];
+
+let cardTaskElt = document.querySelector("#contact-task");
+let cardDeadlineElt = document.querySelector("#contact-deadline");
+let cardCategoryElt = document.querySelector("#contact-category");
+
+cardElt.insertAdjacentHTML("beforeend", "<%= j render 'task', task: @task %>");
+
+cardTaskElt.value = '';
+cardDeadlineElt.value = '';
+cardCategoryElt.value = 1;

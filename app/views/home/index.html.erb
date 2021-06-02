@@ -1,0 +1,53 @@
+<!-- TITLE -->
+<h1 class="text-center mb-4">Welcome to my todolist app</h1>
+
+<!-- FORM -->
+<%= render 'layouts/task_form'  %>
+
+<!-- TASK LIST -->
+<div class="container">
+  <ul class="task-list">
+    <% @categories.each do  |category|%>
+      <li>
+        <%= category.title  %>
+      </li>
+      <div class="card">
+        <ul class="card-list">
+          <% category.tasks.each do |task|  %>
+            <li id="card-item-<%= task.id.to_s %>">
+              <!-- Checkbox -->
+              <%= check_box_tag "task-" + task.id.to_s, 1, task.status , data: { 
+                remote: true, 
+                url: task_path(task.id), 
+                id: task.id,
+                params: { id: task.id, status: task.status}.to_param, 
+                method: "put" 
+              }, class: 'task-cb' %>
+              <span class="card-text">
+                <%= task.title  %>
+                <% unless task.deadline.nil? %>
+                  , to read: <%= task.deadline.strftime('%D')  %>
+                <% end %>
+              </span>
+              <!-- Delete button -->
+              <%= link_to "", task_path(task.id), method: :delete, remote: true, class: "fa fa-trash" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </ul>
+</div>
+
+<!-- AVATAR LIST -->
+<div class="container">
+  <div class="row">
+    <% @tasks.each do |task|  %>
+      <div class="card col-3">
+        <% unless task.image.nil? %>
+          <%= image_tag task.image, class: "rounded-circle" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
