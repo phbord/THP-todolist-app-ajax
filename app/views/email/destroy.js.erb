@@ -1,0 +1,6 @@
+document.querySelectorAll(".notice")[0].textContent = "<%= @flash %>";
+
+emailElt = document.querySelector("#email-item-" + <%= @email.id %>);
+bodyElt = document.querySelector("#email-body-" + <%= @email.id %>);
+emailElt.parentNode.removeChild(emailElt);
+bodyElt.parentNode.removeChild(bodyElt);

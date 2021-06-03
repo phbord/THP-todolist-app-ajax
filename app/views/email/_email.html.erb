@@ -1,6 +1,4 @@
-<li class="list-group-item">
-    <a href="#">
-        <div class="text-muted"><%= email.email %></div>
-        <div class=""><%= email.object %></div>
-    </a>
+<li class="list-group-item" id="email-item-<%= email.id %>">
+    <% title = email.email + " - Object : " + email.object %>
+    <%= link_to title, email_path(email.id), method: :get, remote: true %>
 </li>

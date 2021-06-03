@@ -27,7 +27,7 @@ end
     email: Faker::Internet.email,
     object: Faker::Lorem.sentence(word_count: 3),
     body: Faker::Lorem.sentence(word_count: 15),
-    read: Faker::Boolean.boolean
+    read: false
   )
 end
 

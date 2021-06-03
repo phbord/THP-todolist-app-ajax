@@ -1,8 +1,8 @@
-<article class="my-5">
+<article class="my-5" id="email-body-<%= @email.id %>">
     <h3>Object : <%= @email.object %></h3>
     <p><%= @email.body %><p>
     <div class="btn-group mt-3">
         <%= link_to 'Supprimer', email_path(@email.id), method: :delete, class: 'btn btn-danger', remote: true %>
-        <%= link_to 'Marquer comme non-lu', email_path(@email.id), method: :put, class: 'btn btn-secondary', remote: true %>
+        <%= link_to 'Marquer comme non-lu', email_path(@email.id), method: :put, data: { id: @email.id }, class: 'btn btn-secondary btn-readed', id: 'btn-readed-' + @email.id.to_s, remote: true %>
     </div>
 </article>

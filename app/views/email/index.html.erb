@@ -1,6 +1,7 @@
 <div class="container">
     <h1>Emails</h1>
     <div class="row my-5">
+        <!-- NAVIGATION -->
         <div class="col-12 mb-4">
             <nav>
                 <ul class="">
@@ -10,12 +11,13 @@
                 </ul>
             </nav>
         </div>
+        <!-- LEFT -->
         <div class="col-4">
             <aside>
                 <h2>Liste des emails</h2>
                 <ul class="list-group" id="email-list">
                     <% @emails.each do |email|  %>
-                        <li class="list-group-item">
+                        <li class="list-group-item" id="email-item-<%= email.id %>">
                             <% title = email.email + " - Object : " + email.object %>
                             <%= link_to title, email_path(email.id), method: :get, remote: true %>
                         </li>
@@ -23,6 +25,7 @@
                 </ul>
             </aside>
         </div>
+        <!-- RIGHT -->
         <div class="col-8">
             <article>
                 <h2>Email sélectionné</h2>

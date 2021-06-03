@@ -29,7 +29,7 @@ class EmailController < ApplicationController
   end
 
   def show
-    @email = Email.find(params[:id])
+    @email = email_find
 
     respond_to do |format|
       format.html {
@@ -37,5 +37,34 @@ class EmailController < ApplicationController
       }
       format.js {}
     end
+  end
+
+  def update
+    @flash = "Email updated"
+    @email = email_find
+  end
+
+  def destroy
+    @flash = "Email deleted"
+    @email = email_find
+    puts "*"*40
+    p @email
+    p @email.id
+    puts "*"*40
+    @email.destroy
+
+    respond_to do |format|
+      format.html {
+        redirect_to root_path
+        flash[:notice] = @flash
+      }
+      format.js { }
+    end
+  end
+
+  private
+
+  def email_find
+    Email.find(params[:id])
   end
 end
