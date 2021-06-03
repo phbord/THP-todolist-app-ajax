@@ -17,14 +17,15 @@
                 <h2>Liste des emails</h2>
                 <ul class="list-group" id="email-list">
                     <% @emails.each do |email| %>
-                        <li class="list-group-item <% if email.read === true %>bg-primary<% end %>" id="email-item-<%= email.id %>">
+                        <li class="list-group-item <% if email.read == true %>bg-primary<% end %>" id="email-item-<%= email.id %>">
                             <% title = email.email + " - Object : " + email.object %>
-                            <% if email.read === true %>
-                                <% class_link = 'text-white' %>
+                            <% if email.read == true %>
+                                <% class_link = 'class_link text-white' %>
                             <% else %>
-                                <% class_link = '' %>
+                                <% class_link = 'class_link' %>
                             <% end %>
-                            <%= link_to title, email_path(email.id), method: :put, data: { read: true }, remote: true, class: class_link %>
+                            <%= link_to title, email_path(email.id), method: :get, data: { params: { read: true, id: email.id }.to_param, remote: true}, class: class_link %>
+                            <%= link_to title, email_path(email.id), method: :put, data: { params: { read: true, id: email.id }.to_param, remote: true}, class: 'class_link_hidden d-none' %>
                         </li>
                     <% end %>
                 </ul>

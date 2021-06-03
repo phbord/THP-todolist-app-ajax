@@ -14,16 +14,18 @@ function changeEmailBgColor() {
 }
 
 function addEmailBgColor(elt) {
-    let linkElt = elt.querySelector("a");
+    let linkElt = elt.querySelector("a.class_link");
+    let linkHiddenElt = elt.querySelector("a.class_link_hidden");
     elt.classList.add('bg-primary');
     linkElt.classList.add('text-white');
     linkElt.click();
+    linkHiddenElt.click();
 }
 
 function removeEmailBgColor() {
-    if (!document.querySelectorAll(".btn-readed")[0]) return;
+    if (!document.querySelectorAll(".btn-read")[0]) return;
 
-    let btnElt = document.querySelector(".btn-readed");
+    let btnElt = document.querySelectorAll(".btn-read")[0];
     console.log('>>>> ',btnElt);
     btnElt.addEventListener('click', function(e) {
         e.preventDefault();

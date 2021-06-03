@@ -40,12 +40,12 @@ class EmailController < ApplicationController
   end
 
   def update
-    @flash = "Email updated"
     @email = email_find
-    email_params = { read: true }
+    @email.read = params[:read]
     @email.update(email_params)
     puts "*"*40
-    puts params
+    puts @email.read
+    puts email_params
     puts "*"*40
 
     respond_to do |format|
@@ -79,5 +79,9 @@ class EmailController < ApplicationController
 
   def email_find
     Email.find(params[:id])
+  end
+
+  def email_params
+    params.permit(:id, :email, :body, :object, :read)
   end
 end

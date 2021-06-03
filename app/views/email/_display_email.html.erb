@@ -3,6 +3,6 @@
     <p><%= @email.body %><p>
     <div class="btn-group mt-3">
         <%= link_to 'Supprimer', email_path(@email.id), method: :delete, class: 'btn btn-danger', remote: true %>
-        <%= link_to 'Marquer comme non-lu', email_path(@email.id), method: :put, data: { id: @email.id, read: false }, class: 'btn btn-secondary btn-readed', id: 'btn-readed-' + @email.id.to_s, remote: true %>
+        <%= link_to 'Marquer comme non-lu', email_path(@email.id), method: :put, data: { params: { read: false, id: email.id }.to_param, remote: true}, class: 'btn btn-secondary btn-read', id: 'btn-read-' + @email.id.to_s %>
     </div>
 </article>
