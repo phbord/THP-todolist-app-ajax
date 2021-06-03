@@ -1,0 +1,4 @@
+document.querySelectorAll(".notice")[0].textContent = "<%= @flash %>";
+
+let emailsElt = document.querySelector('#email-list');
+emailsElt.insertAdjacentHTML("beforeend", "<%= j render 'email', email: @email_new %>");

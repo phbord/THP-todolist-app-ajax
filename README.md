@@ -5,6 +5,10 @@ application up and running.
 
 Things you may want to cover:
 
+* Urls
+    - https://thpgmail.herokuapp.com/
+    - https://github.com/phbord/THP-todolist-app-ajax
+
 * Ruby version
 
 * System dependencies

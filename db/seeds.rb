@@ -8,6 +8,9 @@
 
 require 'faker'
 
+Category.destroy_all
+Email.destroy_all
+
 3.times do
   my_category = Category.create(title: Faker::Book.genre)
   3.times do
@@ -19,7 +22,7 @@ require 'faker'
   end
 end
 
-10.times do
+3.times do
   Email.create!(
     email: Faker::Internet.email,
     object: Faker::Lorem.sentence(word_count: 3),

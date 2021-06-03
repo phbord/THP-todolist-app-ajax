@@ -9,10 +9,6 @@ before_action :authenticate_user!
     @task = Task.new(task_params)
     @category = Category.find(category_params)
     @task.category = @category
-    puts "*"*40
-    p @category
-    p @task.category
-    puts "*"*40
     @task.save
 
     respond_to do |format|
