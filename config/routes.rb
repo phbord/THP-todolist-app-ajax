@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "home#index"
+  root to: "email#index"
   resources :home
   resources :tasks, except: [:show]
   resources :email
