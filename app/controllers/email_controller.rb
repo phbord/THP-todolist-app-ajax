@@ -42,6 +42,19 @@ class EmailController < ApplicationController
   def update
     @flash = "Email updated"
     @email = email_find
+    email_params = { read: true }
+    @email.update(email_params)
+    puts "*"*40
+    puts params
+    puts "*"*40
+
+    respond_to do |format|
+      format.html {
+        redirect_to root_path
+        flash[:notice] = @flash
+      }
+      format.js { }
+    end
   end
 
   def destroy

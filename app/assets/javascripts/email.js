@@ -24,7 +24,7 @@ function removeEmailBgColor() {
     if (!document.querySelectorAll(".btn-readed")[0]) return;
 
     let btnElt = document.querySelector(".btn-readed");
-    console.log(btnElt);
+    console.log('>>>> ',btnElt);
     btnElt.addEventListener('click', function(e) {
         e.preventDefault();
         let that = e.currentTarget;
