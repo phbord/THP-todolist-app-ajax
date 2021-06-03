@@ -1,0 +1,7 @@
+read = <%= @email.read %>;
+
+if (read === false) {
+    itemElt = document.querySelector("#email-item-" + <%= @email.id %>);
+    itemElt.classList.remove('bg-primary');
+    itemElt.querySelector("a.class_link").classList.remove('text-white');
+}

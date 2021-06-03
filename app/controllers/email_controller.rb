@@ -43,10 +43,6 @@ class EmailController < ApplicationController
     @email = email_find
     @email.read = params[:read]
     @email.update(email_params)
-    puts "*"*40
-    puts @email.read
-    puts email_params
-    puts "*"*40
 
     respond_to do |format|
       format.html {

@@ -8,7 +8,6 @@ function changeEmailBgColor() {
             e.preventDefault();
             let that = e.currentTarget;
             addEmailBgColor(that);
-            removeEmailBgColor();
         });
     }
 }
@@ -20,19 +19,6 @@ function addEmailBgColor(elt) {
     linkElt.classList.add('text-white');
     linkElt.click();
     linkHiddenElt.click();
-}
-
-function removeEmailBgColor() {
-    if (!document.querySelectorAll(".btn-read")[0]) return;
-
-    let btnElt = document.querySelectorAll(".btn-read")[0];
-    console.log('>>>> ',btnElt);
-    btnElt.addEventListener('click', function(e) {
-        e.preventDefault();
-        let that = e.currentTarget;
-        let id = that.getAttribute('data-id');
-        console.log(id);
-    });
 }
 
 
